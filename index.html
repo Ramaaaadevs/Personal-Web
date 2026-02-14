@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramaa | Personal Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">&lt;Ramaa<span class="accent">/&gt;</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Project</a></li>
+                <li><a href="#experience">Pengalaman</a></li>
+                <li><a href="#contact" class="btn-primary">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge hero-animate" style="animation-delay: 0.1s;">Mahasiswa Teknik Informatika</span>
+                <h1 class="hero-animate" style="animation-delay: 0.3s;">Halo, Saya <span class="text-gradient">Ramaa</span></h1>
+                <p class="tagline hero-animate" style="animation-delay: 0.5s;">Mengubah logika menjadi kode, dan data menjadi cerita.</p>
+                <p class="bio-short hero-animate" style="animation-delay: 0.7s;">
+                    Fokus pada <strong>Data Analysis & Science</strong>, <strong>Web Development</strong>, dan <strong>UI Design</strong>. 
+                    Saat ini sedang mendalami Data Science dengan Python dan SQL, serta mengasah kemampuan Web Development menggunakan React dan Tailwind CSS.
+                </p>
+                <div class="cta-group hero-animate" style="animation-delay: 0.9s;">
+                    <a href="#projects" class="btn btn-filled">Lihat Project</a>
+                    <a href="#contact" class="btn btn-outline">Hubungi Saya</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="code-bg hero-animate" style="animation-delay: 1.1s;">
+            <pre><code>
+const developer = {
+  name: "Ramaa",
+  role: "Student",
+  skills: ["C++", "React"],
+  passion: "Infinite Loop of Learning"
+};
+            </code></pre>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Tentang Saya</h2>
+            <div class="about-grid">
+                <div class="about-text reveal-left">
+                    <p>Hai! Saya adalah mahasiswa Teknik Informatika semester 6 di Institut Teknologi Sumatera (ITERA). Saya memiliki ketertarikan mendalam pada dunia pengembangan perangkat lunak dan analisis data.</p>
+                    <p>Sehari-hari saya sering berkutat dengan logika C++ untuk memecahkan masalah algoritma, namun belakangan ini saya sedang antusias mengeksplorasi dunia Web Development menggunakan React dan Tailwind CSS.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h3>6</h3>
+                            <p>Semester</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>5+</h3>
+                            <p>Projects</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image reveal-right">
+                    <div class="img-box">
+                        <img src="https://via.placeholder.com/400x400" alt="Foto Profil">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section bg-darker">
+        <div class="container">
+            <h2 class="section-title reveal">Tech Stack</h2>
+            
+            <div class="skill-category">
+                <h3 class="reveal"><i class="fas fa-code"></i> Programming & Logic</h3>
+                <div class="skill-grid">
+                    <div class="skill-card reveal delay-100"><i class="fab fa-python"></i> Python</div>
+                    <div class="skill-card reveal delay-200"><i class="fab fa-cuttlefish"></i> C++</div>
+                    <div class="skill-card reveal delay-300"><i class="fab fa-js"></i> JavaScript</div>
+                    <div class="skill-card reveal delay-400"><i class="fas fa-database"></i> SQL</div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3 class="reveal"><i class="fas fa-tools"></i> Tools & Environment</h3>
+                <div class="skill-grid">
+                    <div class="skill-card reveal delay-100"><i class="fab fa-ubuntu"></i> Linux Ubuntu</div>
+                    <div class="skill-card reveal delay-200"><i class="fab fa-windows"></i> Windows 11</div>
+                    <div class="skill-card reveal delay-300"><i class="fab fa-git-alt"></i> Git & GitHub</div>
+                    <div class="skill-card reveal delay-400"><i class="fas fa-code-branch"></i> VS Code</div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3 class="reveal"><i class="fas fa-chart-line"></i> Data Analysis & Science</h3>
+                <div class="skill-grid">
+                    <div class="skill-card reveal delay-100"><i class="fab fa-python"></i> Python</div>
+                    <div class="skill-card reveal delay-200"><i class="fas fa-database"></i> SQL</div>
+                    <div class="skill-card reveal delay-300"><i class="fas fa-chart-pie"></i> Tableau</div>
+                    <div class="skill-card reveal delay-400"><i class="fas fa-file-excel"></i> Excel</div>
+                    <div class="skill-card reveal delay-500"><i class="fas fa-brain"></i> Machine Learning</div>
+
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3 class="reveal"><i class="fas fa-laptop-code"></i> Web Development</h3>
+                <div class="skill-grid">
+                    <div class="skill-card reveal delay-100"><i class="fab fa-react"></i> React JS</div>
+                    <div class="skill-card reveal delay-200"><i class="fab fa-html5"></i> HTML5</div>
+                    <div class="skill-card reveal delay-300"><i class="fab fa-css3-alt"></i> CSS3</div>
+                    <div class="skill-card reveal delay-400"><i class="fas fa-wind"></i> Tailwind</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Featured Projects</h2>
+            <div class="projects-grid">
+                
+                <article class="project-card reveal delay-100">
+                    <div class="project-img">
+                        <div class="placeholder-img"></div> 
+                    </div>
+                    <div class="project-content">
+                        <h3>Sistem Kuis Online (60KUIZ)</h3>
+                        <p>Web aplikasi interaktif untuk kuis online yang memanfaatkan Smart TV. Dibangun dengan arsitektur modern.</p>
+                        <div class="tech-tags">
+                            <span>Next.js</span>
+                            <span>Tailwind</span>
+                            <span>Vercel</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> Code</a>
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card reveal delay-200">
+                    <div class="project-img">
+                        <div class="placeholder-img" style="background: #2c3e50;"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Double Linked List Manager</h3>
+                        <p>Implementasi struktur data kompleks menggunakan C++ murni dengan manajemen memori yang efisien.</p>
+                        <div class="tech-tags">
+                            <span>C++</span>
+                            <span>Algorithm</span>
+                            <span>CLI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card reveal delay-300">
+                    <div class="project-img">
+                        <div class="placeholder-img" style="background: #27ae60;"></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Hexafit Website</h3>
+                        <p>Tugas besar pemrograman web. Frontend development untuk platform kesehatan dan kebugaran.</p>
+                        <div class="tech-tags">
+                            <span>HTML/CSS</span>
+                            <span>JS</span>
+                            <span>API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> Code</a>
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section bg-darker">
+        <div class="container">
+            <h2 class="section-title reveal">Perjalanan Karir</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item reveal delay-100">
+                    <div class="timeline-logo">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    
+                    <div class="timeline-content">
+                        <span class="timeline-date">2023 - Sekarang</span>
+                        <h3>Asisten Praktikum Pengantar Komputer</h3>
+                        <p class="role">Institut Teknologi Sumatera</p>
+                        <ul>
+                            <li>Mengajar dan membimbing 70+ mahasiswa dalam praktikum dasar komputer (Python/C++).</li>
+                            <li>Melakukan evaluasi tugas mingguan dan memberikan feedback teknis yang konstruktif.</li>
+                            <li>Berkoordinasi dengan dosen pengampu untuk penyiapan modul dan materi ajar.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal delay-200">
+                    <div class="timeline-logo">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+
+                    <div class="timeline-content">
+                         <span class="timeline-date">Semester Genap 2023</span>
+                        <h3>Asisten Tutorial Matematika Dasar</h3>
+                        <p class="role">Institut Teknologi Sumatera (TPB)</p>
+                        <ul>
+                            <li>Memfasilitasi sesi tutorial tambahan untuk mahasiswa tahun pertama.</li>
+                            <li>Membuat dan membahas soal-soal latihan kalkulus dan aljabar.</li>
+                            <li>Meningkatkan pemahaman mahasiswa yang kesulitan dengan materi kuliah.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="contact-box reveal">
+                <h2>Mari Terhubung!</h2>
+                <p>Sedang mencari partner kolaborasi atau ingin berdiskusi soal teknologi? Sapa saya di:</p>
+                
+                <div class="social-links-big">
+                    <a href="mailto:diwanrdp6@gmail.com" class="social-btn"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://www.linkedin.com/in/diwan-ramadhani-dwi-putra-54096b316/" class="social-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/Ramaaaadevs" class="social-btn"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+                </div>
+
+                <div class="download-cv">
+                    <a href="#" class="btn btn-filled"><i class="fas fa-download"></i> Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Ramaa.</p>
+    </footer>
+
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        revealElements.forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
