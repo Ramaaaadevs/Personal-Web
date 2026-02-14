@@ -593,6 +593,10 @@ footer i { color: #ef4444; }
 .reveal.delay-200 { transition-delay: 0.2s; }
 .reveal.delay-300 { transition-delay: 0.3s; }
 .reveal.delay-400 { transition-delay: 0.4s; }
+.reveal.delay-500 { transition-delay: 0.5s; }
+.reveal.delay-600 { transition-delay: 0.6s; }
+.reveal.delay-700 { transition-delay: 0.7s; }
+.reveal.delay-800 { transition-delay: 0.8s; }
 
 /* Hero Animation (Load) */
 .hero-animate {
