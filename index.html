@@ -15,6 +15,11 @@
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">&lt;Ramaa<span class="accent">/&gt;</span></a>
+            <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            </div>
             <ul class="nav-links">
                 <li><a href="#about" data-i18n="nav_about">Tentang</a></li>
                 <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
@@ -282,6 +287,21 @@ const developer = {
     </footer>
 
     <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('is-active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Menutup menu saat salah satu link diklik (opsional, untuk UX lebih baik)
+        document.querySelectorAll('.nav-links li a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('is-active');
+                navLinks.classList.remove('active');
+            });
+        });
         // 1. ANIMASI SCROLL REVEAL
         const observerOptions = {
             root: null,
