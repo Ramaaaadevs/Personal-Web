@@ -595,15 +595,29 @@ ul { list-style: none; }
 
 /* Project image + overlay */
 .project-img {
-    height: 240px;
+    height: 0;
+    padding-bottom: 75%; /* 4:3 ratio */
     position: relative;
     overflow: hidden;
 }
 
 .placeholder-img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     transition: transform 0.5s ease;
+}
+
+.project-thumb {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.5s ease;
+    z-index: 1;
 }
 
 .p1 {
@@ -1021,15 +1035,44 @@ ul { list-style: none; }
 }
 
 .modal-img-wrap {
-    height: 240px;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    position: relative;
     overflow: hidden;
 }
 
 .modal-placeholder-img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     transition: transform 0.5s ease;
 }
+
+.modal-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transition: transform 0.5s ease;
+    z-index: 1;
+}
+
+.modal-img-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    background-image: var(--modal-thumb-bg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px) brightness(0.5);
+    transform: scale(1.1);
+    z-index: 0;
+}
+
+.modal-box:hover .modal-img { transform: scale(1.02); }
 
 .modal-box:hover .modal-placeholder-img { transform: scale(1.03); }
 

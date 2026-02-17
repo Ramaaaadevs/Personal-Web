@@ -261,8 +261,12 @@
                 <div class="projects-track">
 
                 <article class="project-card reveal delay-100" data-project="1">
-                    <div class="project-img">
-                        <div class="placeholder-img p1"></div>
+                    <div class="project-img" id="pimg-1">
+                        <img src="./file/project-60kuiz.png" alt="60KUIZ" class="project-thumb"
+                            data-position="top center"
+                            onload="this.style.objectPosition=this.dataset.position"
+                            onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                        <div class="placeholder-img p1" style="display:none"></div>
                         <div class="project-overlay">
                             <div class="overlay-hint"><i class="fas fa-expand-alt"></i> Lihat Detail</div>
                         </div>
@@ -281,8 +285,12 @@
                 </article>
 
                 <article class="project-card reveal delay-200" data-project="2">
-                    <div class="project-img">
-                        <div class="placeholder-img p2"></div>
+                    <div class="project-img" id="pimg-2">
+                        <img src="./file/project-dll.png" alt="Double Linked List Manager" class="project-thumb"
+                            data-position="top center"
+                            onload="this.style.objectPosition=this.dataset.position"
+                            onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                        <div class="placeholder-img p2" style="display:none"></div>
                         <div class="project-overlay">
                             <div class="overlay-hint"><i class="fas fa-expand-alt"></i> Lihat Detail</div>
                         </div>
@@ -300,8 +308,12 @@
                 </article>
 
                 <article class="project-card reveal delay-300" data-project="3">
-                    <div class="project-img">
-                        <div class="placeholder-img p3"></div>
+                    <div class="project-img" id="pimg-3">
+                        <img src="./file/project-hexafit.png" alt="Hexafit Website" class="project-thumb"
+                            data-position="top center"
+                            onload="this.style.objectPosition=this.dataset.position"
+                            onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                        <div class="placeholder-img p3" style="display:none"></div>
                         <div class="project-overlay">
                             <div class="overlay-hint"><i class="fas fa-expand-alt"></i> Lihat Detail</div>
                         </div>
@@ -320,8 +332,12 @@
                 </article>
 
                 <article class="project-card reveal delay-400" data-project="4">
-                    <div class="project-img">
-                        <div class="placeholder-img p4"></div>
+                    <div class="project-img" id="pimg-4">
+                        <img src="./file/project-dashboard.png" alt="Data Analysis Dashboard" class="project-thumb"
+                            data-position="top center"
+                            onload="this.style.objectPosition=this.dataset.position"
+                            onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                        <div class="placeholder-img p4" style="display:none"></div>
                         <div class="project-overlay">
                             <div class="overlay-hint"><i class="fas fa-expand-alt"></i> Lihat Detail</div>
                         </div>
@@ -356,8 +372,7 @@
     <div class="modal-backdrop" id="projectModal">
         <div class="modal-box">
             <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
-            <div class="modal-img-wrap">
-                <div class="modal-placeholder-img" id="modalImg"></div>
+            <div class="modal-img-wrap" id="modalImgWrap">
             </div>
             <div class="modal-body">
                 <div class="modal-header">
@@ -454,7 +469,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 Ramaa. Built with <i class="fas fa-heart"></i> & caffeine.</p>
+        <p>&copy; 2026 Ramaa.</p>
     </footer>
 
     <script src="main.js" defer></script>

@@ -236,7 +236,6 @@ updateLanguage(currentLang);
 
 langToggle.addEventListener('click', () => {
     currentLang = currentLang === 'id' ? 'en' : 'id';
-    window.currentLangGlobal = currentLang;
     updateLanguage(currentLang);
     clearTimeout(typeTimeout);
     typeIndex = 0; charIndex = 0; isDeleting = false;
@@ -261,6 +260,7 @@ const projectData = {
     1: {
         title: "Sistem Kuis Online (60KUIZ)",
         imgClass: "p1",
+        imgSrc: "./file/project-60kuiz.png",
         descId: "Web aplikasi interaktif untuk kuis online berbasis Smart TV. Aplikasi ini memungkinkan host membuat sesi kuis secara real-time, sementara peserta bergabung dan menjawab menggunakan perangkat masing-masing. Dibangun dengan arsitektur modern menggunakan Next.js dan di-deploy di Vercel untuk performa optimal.",
         descEn: "An interactive web application for Smart TV-based online quizzes. Allows hosts to create real-time quiz sessions while participants join and answer from their own devices. Built with modern architecture using Next.js and deployed on Vercel for optimal performance.",
         tags: ["Next.js", "Tailwind", "Vercel"],
@@ -272,6 +272,7 @@ const projectData = {
     2: {
         title: "Double Linked List Manager",
         imgClass: "p2",
+        imgSrc: "./file/project-dll.png",
         descId: "Implementasi struktur data Double Linked List menggunakan C++ murni, tanpa library eksternal. Program ini mendukung operasi insert, delete, search, dan traversal dengan manajemen memori yang efisien menggunakan pointer. Cocok sebagai referensi belajar struktur data dan algoritma.",
         descEn: "An implementation of Double Linked List data structure using pure C++, without external libraries. Supports insert, delete, search, and traversal operations with efficient memory management using pointers. Useful as a reference for studying data structures and algorithms.",
         tags: ["C++", "Algorithm", "CLI"],
@@ -282,6 +283,7 @@ const projectData = {
     3: {
         title: "Hexafit Website",
         imgClass: "p3",
+        imgSrc: "./file/project-hexafit.png",
         descId: "Tugas besar mata kuliah Pemrograman Web. Frontend development untuk platform kesehatan dan kebugaran 'Hexafit'. Menampilkan fitur tracking aktivitas, artikel kesehatan, dan kalkulator BMI dengan integrasi API eksternal. Fokus pada UI yang bersih dan pengalaman pengguna yang baik.",
         descEn: "Major project for the Web Programming course. Frontend development for the 'Hexafit' health and fitness platform. Features activity tracking, health articles, and a BMI calculator with external API integration. Focused on clean UI and good user experience.",
         tags: ["HTML/CSS", "JS", "API"],
@@ -293,6 +295,7 @@ const projectData = {
     4: {
         title: "Data Analysis Dashboard",
         imgClass: "p4",
+        imgSrc: "./file/project-dashboard.png",
         descId: "Dashboard visualisasi data interaktif yang dibangun menggunakan Python, Pandas, dan Tableau. Menampilkan analisis tren penjualan, segmentasi pelanggan, dan prediksi berbasis machine learning. Data diproses dan divisualisasikan secara real-time untuk mendukung pengambilan keputusan bisnis.",
         descEn: "An interactive data visualization dashboard built with Python, Pandas, and Tableau. Displays sales trend analysis, customer segmentation, and machine learning-based predictions. Data is processed and visualized in real-time to support business decision-making.",
         tags: ["Python", "Pandas", "Tableau"],
@@ -304,146 +307,29 @@ const projectData = {
 };
 
 // =============================================
-// INFINITE CAROUSEL
+// CAROUSEL DOT SYNC
 // =============================================
-(function() {
-    const track = document.querySelector('.projects-track');
-    const dots = document.querySelectorAll('.carousel-dot');
-    if (!track) return;
+const track = document.querySelector('.projects-track');
+const dots = document.querySelectorAll('.carousel-dot');
 
-    const cards = Array.from(track.querySelectorAll('.project-card'));
-    const total = cards.length;
-
-    // Clone first and last cards for infinite illusion
-    const firstClones = cards.slice(0, 3).map(c => {
-        const clone = c.cloneNode(true);
-        clone.classList.add('clone');
-        return clone;
-    });
-    const lastClones = cards.slice(-3).map(c => {
-        const clone = c.cloneNode(true);
-        clone.classList.add('clone');
-        return clone;
-    });
-
-    // Prepend last clones, append first clones
-    lastClones.reverse().forEach(c => track.prepend(c));
-    firstClones.forEach(c => track.appendChild(c));
-
-    // Re-attach modal click on clones
-    track.querySelectorAll('.project-card.clone[data-project]').forEach(card => {
-        card.addEventListener('click', () => {
-            const id = card.getAttribute('data-project');
-            if (window.openProjectModal) window.openProjectModal(id);
-        });
-    });
-
-    let currentIdx = 0; // real index (0-based)
-    let isTransitioning = false;
-
-    function getCardWidth() {
-        return track.querySelector('.project-card').offsetWidth + 24;
-    }
-
-    function getVisibleCount() {
-        if (window.innerWidth <= 580) return 1;
-        if (window.innerWidth <= 900) return 2;
-        return 3;
-    }
-
-    // Jump to position instantly (no animation)
-    function jumpTo(realIdx) {
-        const cardW = getCardWidth();
-        const cloneOffset = lastClones.length;
-        track.style.transition = 'none';
-        track.scrollLeft = (realIdx + cloneOffset) * cardW;
-    }
-
-    // Smooth scroll to real index
-    function scrollTo(realIdx) {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        currentIdx = ((realIdx % total) + total) % total;
-        const cardW = getCardWidth();
-        const cloneOffset = lastClones.length;
-        track.style.transition = 'scroll-left 0s';
-        track.style.scrollBehavior = 'smooth';
-        track.scrollLeft = (currentIdx + cloneOffset) * cardW;
-        updateDots();
-        setTimeout(() => { isTransitioning = false; }, 500);
-    }
-
-    function updateDots() {
-        dots.forEach((d, i) => d.classList.toggle('active', i === currentIdx));
-    }
-
-    // Init: jump to real start (after prepended clones)
-    setTimeout(() => jumpTo(0), 50);
-
-    // Detect when user scrolled to clone zone → jump to real counterpart
+if (track && dots.length) {
     track.addEventListener('scroll', () => {
-        const cardW = getCardWidth();
-        const cloneOffset = lastClones.length;
-        const scrollPos = track.scrollLeft;
-        const totalAllCards = total + lastClones.length + firstClones.length;
-
-        // Scrolled past last real card into first-clones zone
-        if (scrollPos >= (total + cloneOffset) * cardW) {
-            track.style.transition = 'none';
-            track.scrollLeft = cloneOffset * cardW;
-            currentIdx = 0;
-            updateDots();
-        }
-        // Scrolled before first real card into last-clones zone
-        else if (scrollPos < cloneOffset * cardW - 10) {
-            track.style.transition = 'none';
-            track.scrollLeft = (total + cloneOffset - getVisibleCount()) * cardW;
-            currentIdx = total - 1;
-            updateDots();
-        } else {
-            currentIdx = Math.round((scrollPos - cloneOffset * cardW) / cardW);
-            currentIdx = ((currentIdx % total) + total) % total;
-            updateDots();
-        }
+        const cardWidth = track.querySelector('.project-card').offsetWidth + 24;
+        const idx = Math.round(track.scrollLeft / cardWidth);
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
     }, { passive: true });
 
-    // Dot click
     dots.forEach(dot => {
         dot.addEventListener('click', () => {
             const idx = parseInt(dot.getAttribute('data-idx'));
-            const cardW = getCardWidth();
-            const cloneOffset = lastClones.length;
-            track.style.scrollBehavior = 'smooth';
-            track.scrollLeft = (idx + cloneOffset) * cardW;
-            currentIdx = idx;
-            updateDots();
+            const cardWidth = track.querySelector('.project-card').offsetWidth + 24;
+            track.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
         });
     });
-
-    // Expose openProjectModal globally so clones can use it
-    window.openProjectModal = function(id) {
-        const data = window.projectDataGlobal && window.projectDataGlobal[id];
-        if (!data) return;
-        const lang = window.currentLangGlobal || 'id';
-        document.getElementById('modalTitle').textContent = data.title;
-        document.getElementById('modalImg').className = 'modal-placeholder-img ' + data.imgClass;
-        document.getElementById('modalDesc').textContent = lang === 'id' ? data.descId : data.descEn;
-        document.getElementById('modalTags').innerHTML = data.tags.map(t => `<span>${t}</span>`).join('');
-        document.getElementById('modalLinks').innerHTML = data.links.map(l =>
-            `<a href="${l.href}" class="overlay-btn ${l.type === 'demo' ? 'overlay-demo' : ''}">
-                <i class="${l.icon}"></i> ${l.label}
-            </a>`).join('');
-        document.getElementById('projectModal').classList.add('active');
-        document.body.style.overflow = 'hidden';
-    };
-}());
+}
 
 const modal = document.getElementById('projectModal');
 const modalClose = document.getElementById('modalClose');
-
-// Expose globally for carousel clones
-window.projectDataGlobal = projectData;
-window.currentLangGlobal = currentLang;
 
 document.querySelectorAll('.project-card[data-project]').forEach(card => {
     card.addEventListener('click', () => {
@@ -452,7 +338,20 @@ document.querySelectorAll('.project-card[data-project]').forEach(card => {
         const lang = currentLang || 'id';
 
         document.getElementById('modalTitle').textContent = data.title;
-        document.getElementById('modalImg').className = 'modal-placeholder-img ' + data.imgClass;
+
+        // Modal image: pakai <img> jika ada, fallback ke placeholder
+        const imgWrap = document.getElementById('modalImgWrap');
+        if (data.imgSrc) {
+            imgWrap.innerHTML = `<img src="${data.imgSrc}" alt="${data.title}" class="modal-img" id="modalImgTag">`;
+            const modalImg = imgWrap.querySelector('.modal-img');
+            const setModalBg = () => {
+                imgWrap.style.setProperty('--modal-thumb-bg', `url('${data.imgSrc}')`);
+            };
+            modalImg.addEventListener('load', setModalBg);
+            if (modalImg.complete && modalImg.naturalWidth) setModalBg();
+        } else {
+            imgWrap.innerHTML = `<div class="modal-placeholder-img ${data.imgClass}"></div>`;
+        }
         document.getElementById('modalDesc').textContent = lang === 'id' ? data.descId : data.descEn;
 
         const tagsEl = document.getElementById('modalTags');
