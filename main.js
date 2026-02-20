@@ -283,7 +283,7 @@ const projectData = {
     3: {
         title: "Hexafit Website",
         imgClass: "p3",
-        imgSrc: "./file/project-hexafit.png",
+        imgSrc: "./file/hexafit.png",
         descId: "Tugas besar mata kuliah Pemrograman Web. Frontend development untuk platform kesehatan dan kebugaran 'Hexafit'. Menampilkan fitur tracking aktivitas, artikel kesehatan, dan kalkulator BMI dengan integrasi API eksternal. Fokus pada UI yang bersih dan pengalaman pengguna yang baik.",
         descEn: "Major project for the Web Programming course. Frontend development for the 'Hexafit' health and fitness platform. Features activity tracking, health articles, and a BMI calculator with external API integration. Focused on clean UI and good user experience.",
         tags: ["HTML/CSS", "JS", "API"],
